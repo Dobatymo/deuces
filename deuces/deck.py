@@ -1,5 +1,11 @@
+from __future__ import absolute_import, division, print_function, unicode_literals
+
+from builtins import range
+from future.utils import iteritems
+
 from random import shuffle
-from card import Card
+
+from .card import Card
 
 class Deck:
     """
@@ -36,7 +42,7 @@ class Deck:
 
         # create the standard 52 card deck
         for rank in Card.STR_RANKS:
-            for suit,val in Card.CHAR_SUIT_TO_INT_SUIT.iteritems():
+            for suit,val in iteritems(Card.CHAR_SUIT_TO_INT_SUIT):
                 Deck._FULL_DECK.append(Card.new(rank + suit))
 
         return list(Deck._FULL_DECK)
